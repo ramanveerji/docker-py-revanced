@@ -15,7 +15,7 @@ on:
         description: "Upload Non Rooted APKs to Telegram"
         required: false
         type: boolean
-        default: false
+        default: true
       TELEGRAM_ROOT_UPLOAD:
         description: "Upload Magisk Module from nikhilbadyal/revanced-magisk-module to Telegram"
         required: false
@@ -35,7 +35,7 @@ on:
         description: "Clear GitHub(Useful if Telegram upload is enabled)"
         required: false
         type: boolean
-        default: false
+        default: true
       COMMIT_CHANGELOG:
         description: "Update Changelog"
         type: boolean
@@ -81,7 +81,7 @@ on:
         description: "Clear GitHub(Useful if Telegram upload is enabled)"
         required: false
         type: boolean
-        default: false
+        default: true
       COMMIT_CHANGELOG:
         description: "Update Changelog"
         type: boolean
@@ -127,7 +127,7 @@ jobs:
         id: get-date
         run: |
           echo "date=$(TZ='Asia/Kolkata' date +"%Y.%m.%d-%H.%M.%S")" >> $GITHUB_OUTPUT
-          curl https://github.com/nikhilbadyal/docker-py-revanced/blob/changelogs/changelog.md > changelog.md
+          curl https://github.com/ramanveerji/docker-py-revanced/blob/changelogs/changelog.md > changelog.md
 
       - name: Delete Older Releases
         uses: nikhilbadyal/ghaction-rm-releases@v0.0.5
