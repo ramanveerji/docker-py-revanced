@@ -15,9 +15,9 @@ on:
         description: "Upload Magisk Module from nikhilbadyal/revanced-magisk-module to Telegram"
         required: false
         type: boolean
-        default: true
+        default: false
   schedule:
-    - cron: '*/15 * * * *'
+    - cron: '*30 6 */5 * *'
 jobs:
   release-check:
     permissions: write-all
