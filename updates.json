@@ -1,1 +1,260 @@
-{}
+{
+    "youtube": {
+        "app_version": "19.16.39",
+        "integrations_version": "v1.15.0",
+        "patches_version": "v4.16.0",
+        "cli_version": "v4.6.0",
+        "patches_json_version": "v4.16.0",
+        "ms_epoch_since_patched": 1727750107757,
+        "date_patched": "2024-10-01 02:35:07.757433+05:30",
+        "app_dump": {
+            "app_name": "youtube",
+            "app_version": "19.16.39",
+            "experiment": false,
+            "cli_dl": "https://github.com/revanced/revanced-cli",
+            "patches_dl": "https://github.com/revanced/revanced-patches",
+            "integrations_dl": "https://github.com/revanced/revanced-integrations",
+            "patches_json_dl": "https://github.com/revanced/revanced-patches",
+            "exclude_request": [
+                "custom-branding",
+                "change-header"
+            ],
+            "include_request": [],
+            "resource": {
+                "cli": {
+                    "file_name": "d1dd3f8bdff4c4fbedc02f74dc4a853217af9769fcb559fe394d77806114dc55.jar",
+                    "version": "v4.6.0"
+                },
+                "integrations": {
+                    "file_name": "85c2101509a0f7825d928a0d5fa243f257facad6aef0bc8c552ee399f7f28a65.apk",
+                    "version": "v1.15.0"
+                },
+                "patches": {
+                    "file_name": "7d13c2540b41151aa0e5171f1a72146d1f1a15a5b4bb9c44c84b54d35b43ecc7.jar",
+                    "version": "v4.16.0"
+                },
+                "patches_json": {
+                    "file_name": "64edb8beb36f1d59bd5e00ecdcc9dd19fe8264529d6ecaba42522fdb3af00831.json",
+                    "version": "v4.16.0"
+                }
+            },
+            "no_of_patches": 63,
+            "keystore_name": "rs.keystore",
+            "archs_to_build": [
+                "arm64-v8a",
+                "armeabi-v7a"
+            ],
+            "options_file": "options.json",
+            "download_file_name": "youtube.apk",
+            "download_dl": "https://www.apkmirror.com/wp-content/themes/APKMirror/download.php?id=6148753&key=8a575235f3caaeb9b65b9bcaa33d38ee818f1f8f&forcebaseapk=true",
+            "download_source": "https://www.apkmirror.com/apk/google-inc/youtube/",
+            "package_name": "com.google.android.youtube",
+            "old_key": true,
+            "space_formatted": true
+        }
+    },
+    "youtube_music": {
+        "app_version": "7.03.52",
+        "integrations_version": "v1.15.0",
+        "patches_version": "v4.16.0",
+        "cli_version": "v4.6.0",
+        "patches_json_version": "v4.16.0",
+        "ms_epoch_since_patched": 1727750162925,
+        "date_patched": "2024-10-01 02:36:02.925156+05:30",
+        "app_dump": {
+            "app_name": "youtube_music",
+            "app_version": "7.03.52",
+            "experiment": false,
+            "cli_dl": "https://github.com/revanced/revanced-cli",
+            "patches_dl": "https://github.com/revanced/revanced-patches",
+            "integrations_dl": "https://github.com/revanced/revanced-integrations",
+            "patches_json_dl": "https://github.com/revanced/revanced-patches",
+            "exclude_request": [
+                "custom-branding"
+            ],
+            "include_request": [],
+            "resource": {
+                "cli": {
+                    "file_name": "d1dd3f8bdff4c4fbedc02f74dc4a853217af9769fcb559fe394d77806114dc55.jar",
+                    "version": "v4.6.0"
+                },
+                "integrations": {
+                    "file_name": "85c2101509a0f7825d928a0d5fa243f257facad6aef0bc8c552ee399f7f28a65.apk",
+                    "version": "v1.15.0"
+                },
+                "patches": {
+                    "file_name": "7d13c2540b41151aa0e5171f1a72146d1f1a15a5b4bb9c44c84b54d35b43ecc7.jar",
+                    "version": "v4.16.0"
+                },
+                "patches_json": {
+                    "file_name": "64edb8beb36f1d59bd5e00ecdcc9dd19fe8264529d6ecaba42522fdb3af00831.json",
+                    "version": "v4.16.0"
+                }
+            },
+            "no_of_patches": 10,
+            "keystore_name": "rs.keystore",
+            "archs_to_build": [
+                "arm64-v8a"
+            ],
+            "options_file": "options.json",
+            "download_file_name": "youtube_music.apk",
+            "download_dl": "https://www.apkmirror.com/wp-content/themes/APKMirror/download.php?id=6346063&key=db4092676a35f3419bd185a9833fed3db9ea4c64&forcebaseapk=true",
+            "download_source": "https://www.apkmirror.com/apk/google-inc/youtube-music/",
+            "package_name": "com.google.android.apps.youtube.music",
+            "old_key": true,
+            "space_formatted": true
+        }
+    },
+    "inshorts": {
+        "app_version": "6-7-3-5067825",
+        "integrations_version": "v1.15.0",
+        "patches_version": "v4.16.0",
+        "cli_version": "v4.6.0",
+        "patches_json_version": "v4.16.0",
+        "ms_epoch_since_patched": 1727750192565,
+        "date_patched": "2024-10-01 02:36:32.564916+05:30",
+        "app_dump": {
+            "app_name": "inshorts",
+            "app_version": "6-7-3-5067825",
+            "experiment": false,
+            "cli_dl": "https://github.com/revanced/revanced-cli",
+            "patches_dl": "https://github.com/revanced/revanced-patches",
+            "integrations_dl": "https://github.com/revanced/revanced-integrations",
+            "patches_json_dl": "https://github.com/revanced/revanced-patches",
+            "exclude_request": [],
+            "include_request": [],
+            "resource": {
+                "cli": {
+                    "file_name": "d1dd3f8bdff4c4fbedc02f74dc4a853217af9769fcb559fe394d77806114dc55.jar",
+                    "version": "v4.6.0"
+                },
+                "integrations": {
+                    "file_name": "85c2101509a0f7825d928a0d5fa243f257facad6aef0bc8c552ee399f7f28a65.apk",
+                    "version": "v1.15.0"
+                },
+                "patches": {
+                    "file_name": "7d13c2540b41151aa0e5171f1a72146d1f1a15a5b4bb9c44c84b54d35b43ecc7.jar",
+                    "version": "v4.16.0"
+                },
+                "patches_json": {
+                    "file_name": "64edb8beb36f1d59bd5e00ecdcc9dd19fe8264529d6ecaba42522fdb3af00831.json",
+                    "version": "v4.16.0"
+                }
+            },
+            "no_of_patches": 1,
+            "keystore_name": "rs.keystore",
+            "archs_to_build": [
+                "arm64-v8a"
+            ],
+            "options_file": "options.json",
+            "download_file_name": "inshorts.apk",
+            "download_dl": "https://www.apkmirror.com/wp-content/themes/APKMirror/download.php?id=7020871&key=7bfa223f1883f8ffca19973e3fb9d499c4d208c6",
+            "download_source": "https://www.apkmirror.com/apk/inshorts-formerly-news-in-shorts/inshorts-news-in-60-words-2/",
+            "package_name": "com.nis.app",
+            "old_key": true,
+            "space_formatted": true
+        }
+    },
+    "twitter": {
+        "app_version": "10-60-0-release-0-310600000",
+        "integrations_version": "v1.29.0",
+        "patches_version": "v1.40.0",
+        "cli_version": "v4.6.0",
+        "patches_json_version": "v1.40.0",
+        "ms_epoch_since_patched": 1727750229447,
+        "date_patched": "2024-10-01 02:37:09.447173+05:30",
+        "app_dump": {
+            "app_name": "twitter",
+            "app_version": "10-60-0-release-0-310600000",
+            "experiment": false,
+            "cli_dl": "https://github.com/revanced/revanced-cli",
+            "patches_dl": "https://github.com/crimera/piko",
+            "integrations_dl": "https://github.com/crimera/revanced-integrations",
+            "patches_json_dl": "https://github.com/crimera/piko",
+            "exclude_request": [
+                "bring-back-twitter"
+            ],
+            "include_request": [],
+            "resource": {
+                "cli": {
+                    "file_name": "d1dd3f8bdff4c4fbedc02f74dc4a853217af9769fcb559fe394d77806114dc55.jar",
+                    "version": "v4.6.0"
+                },
+                "integrations": {
+                    "file_name": "24dfb5e0c7fba6dd2b43300e1efe74279e0d33f7a0c13e5b1d250d19a7d7d969.apk",
+                    "version": "v1.29.0"
+                },
+                "patches": {
+                    "file_name": "7d711a61363fa5e9703c2089ce32ac9a14095241cb8a83047db709de3a339e2d.jar",
+                    "version": "v1.40.0"
+                },
+                "patches_json": {
+                    "file_name": "a5491768b62840c30b99f9b69ee044f0b94b65cb587952feb5fff8cdb8c16617.json",
+                    "version": "v1.40.0"
+                }
+            },
+            "no_of_patches": 58,
+            "keystore_name": "rs.keystore",
+            "archs_to_build": [
+                "arm64-v8a"
+            ],
+            "options_file": "options.json",
+            "download_file_name": "twitter.apk",
+            "download_dl": "https://www.apkmirror.com/wp-content/themes/APKMirror/download.php?id=7197988&key=78a02f03fd5ed11ee4e15273c82dd2d31485ac38",
+            "download_source": "https://www.apkmirror.com/apk/x-corp/twitter/",
+            "package_name": "com.twitter.android",
+            "old_key": true,
+            "space_formatted": true
+        }
+    },
+    "photos": {
+        "app_version": "7-1-0-677535587-49248314",
+        "integrations_version": "v1.15.0",
+        "patches_version": "v4.16.0",
+        "cli_version": "v4.6.0",
+        "patches_json_version": "v4.16.0",
+        "ms_epoch_since_patched": 1727750276130,
+        "date_patched": "2024-10-01 02:37:56.129864+05:30",
+        "app_dump": {
+            "app_name": "photos",
+            "app_version": "7-1-0-677535587-49248314",
+            "experiment": false,
+            "cli_dl": "https://github.com/revanced/revanced-cli",
+            "patches_dl": "https://github.com/revanced/revanced-patches",
+            "integrations_dl": "https://github.com/revanced/revanced-integrations",
+            "patches_json_dl": "https://github.com/revanced/revanced-patches",
+            "exclude_request": [],
+            "include_request": [],
+            "resource": {
+                "cli": {
+                    "file_name": "d1dd3f8bdff4c4fbedc02f74dc4a853217af9769fcb559fe394d77806114dc55.jar",
+                    "version": "v4.6.0"
+                },
+                "integrations": {
+                    "file_name": "85c2101509a0f7825d928a0d5fa243f257facad6aef0bc8c552ee399f7f28a65.apk",
+                    "version": "v1.15.0"
+                },
+                "patches": {
+                    "file_name": "7d13c2540b41151aa0e5171f1a72146d1f1a15a5b4bb9c44c84b54d35b43ecc7.jar",
+                    "version": "v4.16.0"
+                },
+                "patches_json": {
+                    "file_name": "64edb8beb36f1d59bd5e00ecdcc9dd19fe8264529d6ecaba42522fdb3af00831.json",
+                    "version": "v4.16.0"
+                }
+            },
+            "no_of_patches": 3,
+            "keystore_name": "rs.keystore",
+            "archs_to_build": [
+                "arm64-v8a"
+            ],
+            "options_file": "options.json",
+            "download_file_name": "photos.apk",
+            "download_dl": "https://www.apkmirror.com/wp-content/themes/APKMirror/download.php?id=7239081&key=c6b8e15584c38dfb3b69ea68027d1f4467bc8f3a&forcebaseapk=true",
+            "download_source": "https://www.apkmirror.com/apk/google-inc/photos/",
+            "package_name": "com.google.android.apps.photos",
+            "old_key": true,
+            "space_formatted": true
+        }
+    }
+}
