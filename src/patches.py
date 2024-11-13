@@ -75,6 +75,13 @@ class Patches(object):
         "io.syncapps.lemmy_sync": "lemmy-sync",
         "com.xiaomi.wearable": "xiaomi-wearable",
         "com.google.android.apps.photos": "photos",
+        "com.amazon.mShop.android.shopping": "amazon",
+        "com.bandcamp.android": "bandcamp",
+        "com.google.android.apps.magazines": "magazines",
+        "com.rarlab.rar": "winrar",
+        "com.soundcloud.android": "soundcloud",
+        "de.stocard.stocard": "stocard",
+        "at.willhaben": "willhaben",
     }
 
     @staticmethod
