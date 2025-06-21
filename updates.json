@@ -1,1 +1,247 @@
-{}
+{
+    "youtube": {
+        "app_version": "20.12.46",
+        "patches_version": "v5.28.0",
+        "cli_version": "v5.0.1",
+        "ms_epoch_since_patched": 1750508278543,
+        "date_patched": "2025-06-21 12:17:58.542576+05:30",
+        "app_dump": {
+            "app_name": "youtube",
+            "app_version": "20.12.46",
+            "experiment": false,
+            "cli_dl": "https://github.com/revanced/revanced-cli",
+            "patches_dl": "https://github.com/revanced/revanced-patches",
+            "exclude_request": [
+                "custom-branding",
+                "change-header"
+            ],
+            "include_request": [],
+            "resource": {
+                "cli": {
+                    "file_name": "2d7026935af86ae1618510c333c6e98bcd084ac4312ff8fd382414464c601e7f.jar",
+                    "version": "v5.0.1"
+                },
+                "patches": {
+                    "file_name": "87a087192a6acd9eb3b7d64a8dac8ab53f8ed5bda8f650be337e5b194eb916ec.rvp",
+                    "version": "v5.28.0"
+                }
+            },
+            "no_of_patches": 56,
+            "keystore_name": "rs.keystore",
+            "archs_to_build": [
+                "arm64-v8a",
+                "armeabi-v7a"
+            ],
+            "options_file": "options.json",
+            "download_file_name": "youtube.apk",
+            "download_dl": "https://www.apkmirror.com/wp-content/themes/APKMirror/download.php?id=8859989&key=158df4553532e8e14b5386c2b34f1abf511f560b&forcebaseapk=true",
+            "download_source": "https://www.apkmirror.com/apk/google-inc/youtube/",
+            "package_name": "com.google.android.youtube",
+            "old_key": true,
+            "patches": [],
+            "space_formatted": true
+        }
+    },
+    "youtube_music": {
+        "app_version": "8.05.51",
+        "patches_version": "v5.28.0",
+        "cli_version": "v5.0.1",
+        "ms_epoch_since_patched": 1750508339655,
+        "date_patched": "2025-06-21 12:18:59.654944+05:30",
+        "app_dump": {
+            "app_name": "youtube_music",
+            "app_version": "8.05.51",
+            "experiment": false,
+            "cli_dl": "https://github.com/revanced/revanced-cli",
+            "patches_dl": "https://github.com/revanced/revanced-patches",
+            "exclude_request": [
+                "custom-branding"
+            ],
+            "include_request": [],
+            "resource": {
+                "cli": {
+                    "file_name": "2d7026935af86ae1618510c333c6e98bcd084ac4312ff8fd382414464c601e7f.jar",
+                    "version": "v5.0.1"
+                },
+                "patches": {
+                    "file_name": "87a087192a6acd9eb3b7d64a8dac8ab53f8ed5bda8f650be337e5b194eb916ec.rvp",
+                    "version": "v5.28.0"
+                }
+            },
+            "no_of_patches": 10,
+            "keystore_name": "rs.keystore",
+            "archs_to_build": [
+                "arm64-v8a"
+            ],
+            "options_file": "options.json",
+            "download_file_name": "youtube_music.apk",
+            "download_dl": "https://www.apkmirror.com/wp-content/themes/APKMirror/download.php?id=8372612&key=545967b5705b5ad418d36298dc1bc1d3803d4286&forcebaseapk=true",
+            "download_source": "https://www.apkmirror.com/apk/google-inc/youtube-music/",
+            "package_name": "com.google.android.apps.youtube.music",
+            "old_key": true,
+            "patches": [],
+            "space_formatted": true
+        }
+    },
+    "inshorts": {
+        "app_version": "6.11.7..5069200",
+        "patches_version": "v5.28.0",
+        "cli_version": "v5.0.1",
+        "ms_epoch_since_patched": 1750508135411,
+        "date_patched": "2025-06-21 12:15:35.411372+05:30",
+        "app_dump": {
+            "app_name": "inshorts",
+            "app_version": "6.11.7..5069200",
+            "experiment": true,
+            "cli_dl": "https://github.com/revanced/revanced-cli",
+            "patches_dl": "https://github.com/revanced/revanced-patches",
+            "exclude_request": [],
+            "include_request": [],
+            "resource": {
+                "cli": {
+                    "file_name": "2d7026935af86ae1618510c333c6e98bcd084ac4312ff8fd382414464c601e7f.jar",
+                    "version": "v5.0.1"
+                },
+                "patches": {
+                    "file_name": "87a087192a6acd9eb3b7d64a8dac8ab53f8ed5bda8f650be337e5b194eb916ec.rvp",
+                    "version": "v5.28.0"
+                }
+            },
+            "no_of_patches": 1,
+            "keystore_name": "rs.keystore",
+            "archs_to_build": [
+                "arm64-v8a"
+            ],
+            "options_file": "options.json",
+            "download_file_name": "inshorts.apk",
+            "download_dl": "https://www.apkmirror.com/wp-content/themes/APKMirror/download.php?id=9712173&key=27d96d34f585d3858c6f7ebc488320600fbeb7b5",
+            "download_source": "https://www.apkmirror.com/apk/inshorts-formerly-news-in-shorts/inshorts-news-in-60-words-2/",
+            "package_name": "com.nis.app",
+            "old_key": true,
+            "patches": [],
+            "space_formatted": true
+        }
+    },
+    "photos": {
+        "app_version": "7.34.0.773090893..50280016",
+        "patches_version": "v5.28.0",
+        "cli_version": "v5.0.1",
+        "ms_epoch_since_patched": 1750508161598,
+        "date_patched": "2025-06-21 12:16:01.598133+05:30",
+        "app_dump": {
+            "app_name": "photos",
+            "app_version": "7.34.0.773090893..50280016",
+            "experiment": false,
+            "cli_dl": "https://github.com/revanced/revanced-cli",
+            "patches_dl": "https://github.com/revanced/revanced-patches",
+            "exclude_request": [],
+            "include_request": [],
+            "resource": {
+                "cli": {
+                    "file_name": "2d7026935af86ae1618510c333c6e98bcd084ac4312ff8fd382414464c601e7f.jar",
+                    "version": "v5.0.1"
+                },
+                "patches": {
+                    "file_name": "87a087192a6acd9eb3b7d64a8dac8ab53f8ed5bda8f650be337e5b194eb916ec.rvp",
+                    "version": "v5.28.0"
+                }
+            },
+            "no_of_patches": 3,
+            "keystore_name": "rs.keystore",
+            "archs_to_build": [
+                "arm64-v8a"
+            ],
+            "options_file": "options.json",
+            "download_file_name": "photos.apk",
+            "download_dl": "https://www.apkmirror.com/wp-content/themes/APKMirror/download.php?id=9717996&key=9fe88d951f4ff43f36eb885b58214074ce0defbd&forcebaseapk=true",
+            "download_source": "https://www.apkmirror.com/apk/google-inc/photos/",
+            "package_name": "com.google.android.apps.photos",
+            "old_key": true,
+            "patches": [],
+            "space_formatted": true
+        }
+    },
+    "twitter": {
+        "app_version": "10.94.0.release.0..310940000",
+        "patches_version": "v5.22.0",
+        "cli_version": "v5.0.1",
+        "ms_epoch_since_patched": 1746188373335,
+        "date_patched": "2025-05-02 12:19:33.335441+05:30",
+        "app_dump": {
+            "app_name": "twitter",
+            "app_version": "10.94.0.release.0..310940000",
+            "experiment": true,
+            "cli_dl": "https://github.com/revanced/revanced-cli",
+            "patches_dl": "https://github.com/revanced/revanced-patches",
+            "exclude_request": [
+                "open-links-with-app-chooser"
+            ],
+            "include_request": [],
+            "resource": {
+                "cli": {
+                    "file_name": "2d7026935af86ae1618510c333c6e98bcd084ac4312ff8fd382414464c601e7f.jar",
+                    "version": "v5.0.1"
+                },
+                "patches": {
+                    "file_name": "10848635dbd3b4532ae639090759c91b1663fe6da2896dc1955d3a70e982e023.rvp",
+                    "version": "v5.22.0"
+                }
+            },
+            "no_of_patches": 8,
+            "keystore_name": "rs.keystore",
+            "archs_to_build": [
+                "arm64-v8a"
+            ],
+            "options_file": "options.json",
+            "download_file_name": "twitter.apk",
+            "download_dl": "https://www.apkmirror.com/wp-content/themes/APKMirror/download.php?id=9098240&key=3d84ffbd274e22fc9f29d2c434a4b7b6e201f200",
+            "download_source": "https://www.apkmirror.com/apk/x-corp/twitter/",
+            "package_name": "com.twitter.android",
+            "old_key": true,
+            "patches": [],
+            "space_formatted": true
+        }
+    },
+    "reddit": {
+        "app_version": "2025.12.1",
+        "patches_version": "v5.6.2",
+        "cli_version": "v5.0.1",
+        "ms_epoch_since_patched": 1750508230084,
+        "date_patched": "2025-06-21 12:17:10.083973+05:30",
+        "app_dump": {
+            "app_name": "reddit",
+            "app_version": "2025.12.1",
+            "experiment": false,
+            "cli_dl": "https://github.com/revanced/revanced-cli",
+            "patches_dl": "https://github.com/inotia00/revanced-patches",
+            "exclude_request": [
+                "change-package-name",
+                "custom-branding-name-for-reddit"
+            ],
+            "include_request": [],
+            "resource": {
+                "cli": {
+                    "file_name": "2d7026935af86ae1618510c333c6e98bcd084ac4312ff8fd382414464c601e7f.jar",
+                    "version": "v5.0.1"
+                },
+                "patches": {
+                    "file_name": "894b2126e5bfa61550f9e6d57b1f8a6989bdbae77a229873e4789427d369f992.rvp",
+                    "version": "v5.6.2"
+                }
+            },
+            "no_of_patches": 13,
+            "keystore_name": "rs.keystore",
+            "archs_to_build": [
+                "arm64-v8a"
+            ],
+            "options_file": "options.json",
+            "download_file_name": "reddit.apk",
+            "download_dl": "https://www.apkmirror.com/wp-content/themes/APKMirror/download.php?id=8855218&key=00a43a37ad254cf94e2d09b72b3311d3f9ba1aa2",
+            "download_source": "https://www.apkmirror.com/apk/redditinc/reddit/",
+            "package_name": "com.reddit.frontpage",
+            "old_key": true,
+            "patches": [],
+            "space_formatted": true
+        }
+    }
+}
