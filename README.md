@@ -131,7 +131,8 @@ You can use any of the following methods to build.
 | [APPRISE_NOTIFICATION_TITLE](#apprise)                   |              Apprise Notification Title .               | None                                                                                                                  |
 | [APPRISE_NOTIFICATION_BODY](#apprise)                    |               Apprise Notification Body .               | None                                                                                                                  |
 | MAX_RESOURCE_WORKERS                                     |        Maximum workers for downloading resources        | 3                                                                                                                     |
-
+| MAX_PARALLEL_APPS                                        |      Maximum number of apps to process in parallel      | 4                                                                                                                     |
+| DISABLE_CACHING                                          |          Disable download and resource caching          | False                                                                                                                 |
 
 `*` - Can be overridden for individual app.
 ### App Level Config
@@ -249,10 +250,7 @@ You can use any of the following methods to build.
    5. APKMonk - Supports downloading any available version
        1. Link Format - https://www.apkmonk.com/app/<package-name>/
        2. Example Link - https://www.apkmonk.com/app/<package-name>/
-   6. Google Drive - Supports downloading from Google Drive lint
-       1. Link Format - https://drive.google.com/uc?<id>
-       2. Example Link - https://drive.google.com/uc?id=1ad44UTghbDty8o36Nrp3ZMyUzkPckIqY
-   7. APKEEP - Support downloading using [APKEEP](https://github.com/EFForg/apkeep)
+   6. APKEEP - Support downloading using [APKEEP](https://github.com/EFForg/apkeep)
       1. Link Format - apkeep
       2. Example Link - apkeep
       Note - You need to provide APKEEP_EMAIL and APKEEP_TOKEN in the **DOCKER_PY_REVANCED_SECRETS** Github Secrets.
