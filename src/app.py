@@ -7,9 +7,9 @@ from concurrent.futures import ThreadPoolExecutor
 from datetime import datetime
 from threading import Lock
 from typing import Any, Self
+from zoneinfo import ZoneInfo
 
 from loguru import logger
-from pytz import timezone
 
 from src.config import RevancedConfig
 from src.downloader.sources import APKEEP, apk_sources
@@ -133,9 +133,16 @@ class APP(object):
         -------
             a string that represents the output file name for an APK file.
         """
-        current_date = datetime.now(timezone(time_zone))
+        current_date = datetime.now(ZoneInfo(time_zone))
         formatted_date = current_date.strftime("%Y%b%d.%I%M%p").upper()
-        return f"Re{self.app_name}-Version{slugify(self.app_version)}-PatchVersion{slugify(self.resource["patches"]["version"])}-{formatted_date}-output.apk"  # noqa: E501
+        return (
+            f"Re{self.app_name}-Version{slugify(self.app_version)}"
+            f"-PatchVersion{slugify(self.patch_bundles[0]["version"])}-{formatted_date}-output.apk"
+        )
+
+    def get_patch_bundles_versions(self: Self) -> list[str]:
+        """Get versions of all patch bundles."""
+        return [bundle["version"] for bundle in self.patch_bundles]
 
     def __str__(self: "APP") -> str:
         """Returns the str representation of the app."""
