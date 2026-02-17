@@ -1,1 +1,161 @@
-{}
+{
+    "youtube_music": {
+        "app_version": "8.10.52",
+        "patches_versions": [
+            "v5.50.2"
+        ],
+        "cli_version": "v5.0.1",
+        "ms_epoch_since_patched": 1771374005126,
+        "date_patched": "2026-02-18 00:20:05.125874+05:30",
+        "app_dump": {
+            "app_name": "youtube_music",
+            "app_version": "8.10.52",
+            "experiment": false,
+            "cli_dl": "https://github.com/revanced/revanced-cli",
+            "patches_dl_list": [
+                "https://github.com/revanced/revanced-patches"
+            ],
+            "patches_dl": "https://github.com/revanced/revanced-patches",
+            "exclude_request": [
+                "custom-branding"
+            ],
+            "include_request": [],
+            "resource": {
+                "cli": {
+                    "file_name": "2d7026935af86ae1618510c333c6e98bcd084ac4312ff8fd382414464c601e7f.jar",
+                    "version": "v5.0.1"
+                },
+                "patches": {
+                    "file_name": "2ce4d0138df0cfdc4a956892d7b524c1ce27dfe0d3826952d0ae25659b154345.rvp",
+                    "version": "v5.50.2"
+                }
+            },
+            "patch_bundles": [
+                {
+                    "name": "patches",
+                    "file_name": "2ce4d0138df0cfdc4a956892d7b524c1ce27dfe0d3826952d0ae25659b154345.rvp",
+                    "version": "v5.50.2"
+                }
+            ],
+            "no_of_patches": 19,
+            "keystore_name": "rs.keystore",
+            "archs_to_build": [
+                "arm64-v8a"
+            ],
+            "options_file": "options.json",
+            "download_file_name": "youtube_music.apk",
+            "download_dl": "https://dw.uptodown.com/dwn/vUJu4_3AghJVAZZ4h8G_ugEVg64lO9u1xu1Gv3FGwfNEmt5EC1x39riDSQREsO3t6cYxk-o1geG8wgxF8ltCmBBzPeO6LsSMarLDhZ3R0jq_plAWYvAn3rB7KuY2fpvK/zfP1e_WRCZ4N7q_ckLeDatRnhQHk3GQzXeYNVRE1i-gsBShQiV6GEnguU_lnqoRed4x40DeTO4j_V476FF4KfgWhzNZqEcMbNxDhvmTkM7QubC-Q5IkkkPwfm4GuXXEw/nVFv8G5_d8AsharkwzR181_qPgIGlQWSTLan-1Lt1U3hpLAMdZnuZuk-UkNmDj1-yM5beSRkmcq19b480s0V0EhM127TTzaNAtW1OpJdq9I=/",
+            "download_source": "https://youtube-music.en.uptodown.com/android",
+            "package_name": "com.google.android.apps.youtube.music",
+            "old_key": true,
+            "patches": [],
+            "space_formatted": true
+        }
+    },
+    "photos": {
+        "app_version": "latest",
+        "patches_versions": [
+            "v5.50.2"
+        ],
+        "cli_version": "v5.0.1",
+        "ms_epoch_since_patched": 1771374004047,
+        "date_patched": "2026-02-18 00:20:04.046677+05:30",
+        "app_dump": {
+            "app_name": "photos",
+            "app_version": "latest",
+            "experiment": false,
+            "cli_dl": "https://github.com/revanced/revanced-cli",
+            "patches_dl_list": [
+                "https://github.com/revanced/revanced-patches"
+            ],
+            "patches_dl": "https://github.com/revanced/revanced-patches",
+            "exclude_request": [],
+            "include_request": [],
+            "resource": {
+                "cli": {
+                    "file_name": "2d7026935af86ae1618510c333c6e98bcd084ac4312ff8fd382414464c601e7f.jar",
+                    "version": "v5.0.1"
+                },
+                "patches": {
+                    "file_name": "2ce4d0138df0cfdc4a956892d7b524c1ce27dfe0d3826952d0ae25659b154345.rvp",
+                    "version": "v5.50.2"
+                }
+            },
+            "patch_bundles": [
+                {
+                    "name": "patches",
+                    "file_name": "2ce4d0138df0cfdc4a956892d7b524c1ce27dfe0d3826952d0ae25659b154345.rvp",
+                    "version": "v5.50.2"
+                }
+            ],
+            "no_of_patches": 3,
+            "keystore_name": "rs.keystore",
+            "archs_to_build": [
+                "arm64-v8a"
+            ],
+            "options_file": "options.json",
+            "download_file_name": "photos.apk",
+            "download_dl": "https://dw.uptodown.com/dwn/3l3-KTGFlD8riC2jawB42cQrTlJ8W-ID_BenypDOZKzL9uqv1uNrTI_ZACIZ_bTDtA-w16h8RAUk8Fk4iVMmthXjPUVDirikruUdIbczw8mm4aQJaZGMStTACcCZt7bi/TidHbqMB6dmr9LXHIBHkY_B8u46liulVm2qzQhBKHM9aglHPBvir0Ab7PPL42qrM8x9gGfTD92KGz5T3VrmWzBRyuU_7YNNVPYhmyQeh5rYCjx0uLrC-lhvPMY1U9Gxn/DXGHuX-dtHLLm8NzdoW-LhKhLQmiHqOpYDSC2VEhbTgL8sHH8WlxwK0DEJDr8o3OF1u6G71FVWHLRR80SGIPIaWtXaE2SXbbWsnfcdwU1F-6tjEQUiEOto805faiUTFm/",
+            "download_source": "https://google-photos.en.uptodown.com/android",
+            "package_name": "com.google.android.apps.photos",
+            "old_key": true,
+            "patches": [],
+            "space_formatted": true
+        }
+    },
+    "youtube": {
+        "app_version": "20.14.43",
+        "patches_versions": [
+            "v5.50.2"
+        ],
+        "cli_version": "v5.0.1",
+        "ms_epoch_since_patched": 1771374007339,
+        "date_patched": "2026-02-18 00:20:07.339122+05:30",
+        "app_dump": {
+            "app_name": "youtube",
+            "app_version": "20.14.43",
+            "experiment": false,
+            "cli_dl": "https://github.com/revanced/revanced-cli",
+            "patches_dl_list": [
+                "https://github.com/revanced/revanced-patches"
+            ],
+            "patches_dl": "https://github.com/revanced/revanced-patches",
+            "exclude_request": [
+                "custom-branding",
+                "change-header"
+            ],
+            "include_request": [],
+            "resource": {
+                "cli": {
+                    "file_name": "2d7026935af86ae1618510c333c6e98bcd084ac4312ff8fd382414464c601e7f.jar",
+                    "version": "v5.0.1"
+                },
+                "patches": {
+                    "file_name": "2ce4d0138df0cfdc4a956892d7b524c1ce27dfe0d3826952d0ae25659b154345.rvp",
+                    "version": "v5.50.2"
+                }
+            },
+            "patch_bundles": [
+                {
+                    "name": "patches",
+                    "file_name": "2ce4d0138df0cfdc4a956892d7b524c1ce27dfe0d3826952d0ae25659b154345.rvp",
+                    "version": "v5.50.2"
+                }
+            ],
+            "no_of_patches": 59,
+            "keystore_name": "rs.keystore",
+            "archs_to_build": [
+                "arm64-v8a",
+                "armeabi-v7a"
+            ],
+            "options_file": "options.json",
+            "download_file_name": "youtube.apk",
+            "download_dl": "https://dw.uptodown.com/dwn/vUJu4_3AghJVAZZ4h8G_ugEVg64lO9u1xu1Gv3FGwfPpS6LXUKKDMc8jPeWts6KtYno8fujahKC8sBnl24QXAYi86FVzudqC_qlRB0AVdACQRmHoFEftQAfxr4kxVXeM/AL_l6YekfstsYgyHJKIt_QfKv-Mftb1SEGxoq_C70dSxTK-4Qw5KhwkJ3R-YkmKpxXi1ZMS9s3H7pICBZ3SL31hNKzjMGgEmIbjyNe5_ZwENa2geJQOSL9GUMjPE1dUm/QMZoqCrnB5u-DU2N4_54IdK1_F7fl6TRMxgjB4C1zOus9Tj7caevR5GhEN2f3ktCTBYam6N0Ot1WC1ikOOdQvQ==/",
+            "download_source": "https://youtube.en.uptodown.com/android",
+            "package_name": "com.google.android.youtube",
+            "old_key": true,
+            "patches": [],
+            "space_formatted": true
+        }
+    }
+}
