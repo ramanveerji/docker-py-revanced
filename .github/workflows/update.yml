@@ -21,16 +21,21 @@ jobs:
             mkdir -p apks
             touch apks/latest-parsed-version.md
           fi
-      - name: Get latest release from ReVanced/revanced-patches
+      # - name: Get latest release from ReVanced/revanced-patches
+      - name: Get latest release from MorpheApp/morphe-patches
         id: latest-release
         run: |
-          LATEST_RELEASE=$(curl -s https://api.github.com/repos/ReVanced/revanced-patches/releases/latest | jq -r '.tag_name')
-          if [ "$LATEST_RELEASE" == "null" ]; then
+          # LATEST_RELEASE=$(curl -s -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" https://api.github.com/repos/ReVanced/revanced-patches/releases/latest | jq -r '.tag_name')
+          LATEST_RELEASE=$(curl -s -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" https://api.github.com/repos/MorpheApp/morphe-patches/releases/latest | jq -r '.tag_name')
+          if [ "$LATEST_RELEASE" == "null" ] || [ -z "$LATEST_RELEASE" ]; then
             echo "Couldn't fetch latest release. Workflow halted!"
+            echo "skip_update=true" >> $GITHUB_OUTPUT
             exit 0
           fi
-          echo "::set-output name=tag_name::$LATEST_RELEASE"
+          echo "tag_name=$LATEST_RELEASE" >> $GITHUB_OUTPUT
       - name: Compare with local version
+        id: compare-version
+        if: steps.latest-release.outputs.skip_update != 'true'
         run: |
           LOCAL_VERSION=$(cat apks/latest-parsed-version.md)
           if [ "$LOCAL_VERSION" == "${{ steps.latest-release.outputs.tag_name }}" ]; then
@@ -41,9 +46,8 @@ jobs:
             git add apks/latest-parsed-version.md
             git commit -m "Update latest-parsed-version.md"
             git push
-            echo "::set-output name=trigger_build::true"
+            echo "trigger_build=true" >> $GITHUB_OUTPUT
           fi
-        id: compare-version
       - name: Verify local version update
         if: ${{ steps.compare-version.outputs.trigger_build == 'true' }}
         run: |
