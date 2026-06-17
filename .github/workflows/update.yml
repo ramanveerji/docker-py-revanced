@@ -16,9 +16,10 @@ jobs:
         uses: actions/checkout@v2
       - name: Check if file exists
         run: |
-          if [[ ! -f latest-parsed-version.md ]]; then
-            echo "The file latest-parsed-version.md was not found at the base of the repository. This file is necessary for keeping track of the previously built version and compare it the remote version. To avoid generating failed runs, the workflow will now be interrupted."
-            exit 0
+          if [[ ! -f apks/latest-parsed-version.md ]]; then
+            echo "The file apks/latest-parsed-version.md was not found. Creating it."
+            mkdir -p apks
+            touch apks/latest-parsed-version.md
           fi
       - name: Get latest release from ReVanced/revanced-patches
         id: latest-release
