@@ -15,7 +15,7 @@ on:
         description: "Upload Non Rooted APKs to Telegram"
         required: false
         type: boolean
-        default: false
+        default: true
 
       APPRISE_NOTIFY:
         description: "Use Apprise to Notify"
@@ -26,7 +26,7 @@ on:
         description: "Clear GitHub(Useful if Telegram upload is enabled)"
         required: false
         type: boolean
-        default: false
+        default: true
       COMMIT_CHANGELOG:
         description: "Update Changelog"
         type: boolean
@@ -52,7 +52,7 @@ on:
         description: "Upload Non Rooted APKs to Telegram"
         required: false
         type: boolean
-        default: false
+        default: true
 
       APPRISE_NOTIFY:
         description: "Use Apprise to Notify"
@@ -63,7 +63,7 @@ on:
         description: "Clear GitHub(Useful if Telegram upload is enabled)"
         required: false
         type: boolean
-        default: false
+        default: true
       COMMIT_CHANGELOG:
         description: "Update Changelog"
         type: boolean
@@ -120,7 +120,7 @@ jobs:
       - name: Upload Build Artifact
         uses: ncipollo/release-action@main
         with:
-          artifacts: "apks/*-output.apk,updates.json,changelog.json,changelog.md"
+          artifacts: "apks/*-output.apk"
           token: ${{ secrets.GITHUB_TOKEN }}
           tag: Build-${{ steps.get-date.outputs.date }}
           artifactErrorsFailBuild: true
