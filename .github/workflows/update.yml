@@ -43,7 +43,7 @@ jobs:
           else
             echo "Local reported version doesn't match fetched version, updating local version."
             echo "${{ steps.latest-release.outputs.tag_name }}" > apks/latest-parsed-version.md
-            git add apks/latest-parsed-version.md
+            git add -f apks/latest-parsed-version.md
             git commit -m "Update latest-parsed-version.md"
             git push
             echo "trigger_build=true" >> $GITHUB_OUTPUT
