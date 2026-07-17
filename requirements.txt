@@ -1,5 +1,5 @@
 beautifulsoup4==4.15.0
-cloakbrowser==0.4.5
+cloakbrowser==0.4.10
 cloudscraper==1.2.71
 environs==15.0.1
 google-play-scraper==1.2.7
@@ -9,4 +9,4 @@ packaging==26.2
 pre-commit==4.6.0
 python-dotenv==1.2.2
 requests==2.34.2
-tqdm==4.68.3
+tqdm==4.68.4
