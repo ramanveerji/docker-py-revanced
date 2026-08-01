@@ -1,5 +1,6 @@
 """Downloader Class."""
 
+import os
 from typing import Any, Self, cast
 from uuid import uuid4
 
@@ -19,8 +20,13 @@ from src.utils import (
     slugify,
 )
 
-# CloakBrowser runs inside the Docker container as root, so Chromium needs container-safe launch flags.
-CLOAK_BROWSER_ARGS = ["--no-sandbox", "--disable-dev-shm-usage"]
+# CloakBrowser runs inside Docker as root, so Chromium needs container-safe launch flags.
+# Allow 3rd party cookies so embedded Cloudflare Turnstile challenge iframes can validate properly.
+CLOAK_BROWSER_ARGS = [
+    "--no-sandbox",
+    "--disable-dev-shm-usage",
+    "--fingerprint-allow-3p-cookies",
+]
 # Waiting briefly after DOM load lets Cloudflare hand off to the real page without blocking forever on ads.
 CLOAK_NETWORK_IDLE_TIMEOUT_MS = 15_000
 # Playwright expects milliseconds while the rest of the downloader config stores request timeouts in seconds.
@@ -49,22 +55,40 @@ class ApkMirror(Downloader):
         return any(marker in lowered_source for marker in CLOAK_CHALLENGE_MARKERS)
 
     @staticmethod
-    def _cloak_dependencies(url: str, cause: Exception | None = None) -> tuple[Any, Any]:
+    def _cloak_dependencies(url: str, cause: Exception | None = None) -> tuple[Any, Any, Any]:
         """Load CloakBrowser lazily so non-APKMirror flows do not require a browser import."""
         try:
             from cloakbrowser import launch  # noqa: PLC0415
+            from playwright.sync_api import Error as PlaywrightError  # noqa: PLC0415
             from playwright.sync_api import TimeoutError as PlaywrightTimeoutError  # noqa: PLC0415
         except ImportError as exc:
             msg = "APKMirror returned a Cloudflare challenge, but CloakBrowser is not installed."
             raise APKMirrorAPKDownloadError(msg, url=url) from (cause or exc)
 
-        return launch, PlaywrightTimeoutError
+        return launch, PlaywrightTimeoutError, PlaywrightError
+
+    @staticmethod
+    def _cloak_launch_kwargs() -> dict[str, Any]:
+        """Build launch parameters for CloakBrowser, injecting optional CLOAKBROWSER_LICENSE_KEY if present."""
+        # Container-safe flags and humanization presets are set by default for Turnstile anti-bot bypass.
+        kwargs: dict[str, Any] = {
+            "args": CLOAK_BROWSER_ARGS,
+            "humanize": True,
+            "human_preset": "careful",
+        }
+        # Read optional license key from environment variable to unlock CloakBrowser Pro binary releases.
+        license_key = os.getenv("CLOAKBROWSER_LICENSE_KEY")
+        if license_key:
+            # Pass license key explicitly when configured in environment variables.
+            kwargs["license_key"] = license_key
+        return kwargs
 
     @staticmethod
     def _extract_source_with_cloak(url: str, cause: Exception | None = None) -> str:
         """Fetch APKMirror HTML through CloakBrowser when cloudscraper receives a challenge page."""
-        launch_browser, playwright_timeout_error = ApkMirror._cloak_dependencies(url, cause)
-        browser = launch_browser(args=CLOAK_BROWSER_ARGS)
+        launch_browser, playwright_timeout_error, playwright_error = ApkMirror._cloak_dependencies(url, cause)
+        # Launch CloakBrowser with container flags, human behavioral simulation, and optional license key.
+        browser = launch_browser(**ApkMirror._cloak_launch_kwargs())
         try:
             page = browser.new_page()
             # CloakBrowser owns the browser fingerprint, so partial header overrides would desync client hints.
@@ -74,9 +98,40 @@ class ApkMirror(Downloader):
                 page.wait_for_load_state("networkidle", timeout=CLOAK_NETWORK_IDLE_TIMEOUT_MS)
             except playwright_timeout_error:
                 logger.debug(f"Timed out waiting for APKMirror network idle after CloakBrowser loaded {url}.")
+
             source = cast("str", page.content())
+            if ApkMirror._is_cloudflare_challenge(source):
+                logger.debug(f"Cloudflare challenge detected on {url}; waiting for Turnstile auto-resolution...")
+                try:
+                    # Give Cloudflare Turnstile time to execute JS, auto-resolve, and navigate to the target page.
+                    page.wait_for_function(
+                        """() => {
+                            const title = document.title.toLowerCase();
+                            const body = document.body ? document.body.innerText.toLowerCase() : "";
+                            return !title.includes("just a moment") &&
+                                   !title.includes("attention required") &&
+                                   !body.includes("checking your browser") &&
+                                   !body.includes("cf-turnstile");
+                        }""",
+                        timeout=CLOAK_NETWORK_IDLE_TIMEOUT_MS,
+                    )
+                    source = cast("str", page.content())
+                except playwright_timeout_error:
+                    logger.debug(f"Timed out waiting for Cloudflare Turnstile auto-resolution on {url}.")
+        except (playwright_error, Exception) as exc:  # noqa: BLE001
+            # Handle abrupt session seat exhaustion gracefully (CloakBrowser issue #477).
+            msg = (
+                f"CloakBrowser failed to load {url}. If using CloakBrowser free tier, "
+                "an earlier ungraceful process shutdown may have temporarily occupied the session seat "
+                "(seats auto-release within ~15 minutes)."
+            )
+            raise APKMirrorAPKDownloadError(msg, url=url) from (cause or exc)
         finally:
-            browser.close()
+            try:
+                # Ensure browser process closes in finally block so session seats are released immediately.
+                browser.close()
+            except Exception:  # noqa: BLE001
+                logger.debug("CloakBrowser instance was already closed during cleanup.")
 
         if ApkMirror._is_cloudflare_challenge(source):
             msg = "APKMirror still returned a Cloudflare challenge after CloakBrowser loaded the page."
@@ -95,11 +150,12 @@ class ApkMirror(Downloader):
             logger.debug(f"Skipping CloakBrowser download of {file_name} from {url}. Dry run is enabled.")
             return
 
-        launch_browser, playwright_timeout_error = self._cloak_dependencies(url, cause)
+        launch_browser, playwright_timeout_error, _playwright_error = self._cloak_dependencies(url, cause)
         target_path = self.config.temp_folder.joinpath(file_name)
         # Save into a unique partial path so failed browser downloads never poison the cache target.
         partial_path = target_path.with_name(f".{target_path.name}.{uuid4().hex}.part")
-        browser = launch_browser(args=CLOAK_BROWSER_ARGS)
+        # Launch CloakBrowser with container flags, human behavioral simulation, and optional license key.
+        browser = launch_browser(**ApkMirror._cloak_launch_kwargs())
         try:
             page = browser.new_page()
             # The download endpoint validates navigation context; keep CloakBrowser's own UA and add only the referer.
@@ -110,6 +166,24 @@ class ApkMirror(Downloader):
                 page.wait_for_load_state("networkidle", timeout=CLOAK_NETWORK_IDLE_TIMEOUT_MS)
             except playwright_timeout_error:
                 logger.debug(f"Timed out waiting for APKMirror referer network idle before downloading {file_name}.")
+
+            referer_source = cast("str", page.content())
+            if ApkMirror._is_cloudflare_challenge(referer_source):
+                try:
+                    # Give Cloudflare Turnstile time to execute JS on referer page before triggering download.
+                    page.wait_for_function(
+                        """() => {
+                            const title = document.title.toLowerCase();
+                            const body = document.body ? document.body.innerText.toLowerCase() : "";
+                            return !title.includes("just a moment") &&
+                                   !title.includes("attention required") &&
+                                   !body.includes("checking your browser") &&
+                                   !body.includes("cf-turnstile");
+                        }""",
+                        timeout=CLOAK_NETWORK_IDLE_TIMEOUT_MS,
+                    )
+                except playwright_timeout_error:
+                    logger.debug("Timed out waiting for Cloudflare challenge auto-resolution on referer page.")
 
             with page.expect_download(timeout=CLOAK_REQUEST_TIMEOUT_MS) as download_info:
                 # Triggering a same-page anchor preserves browser download behavior better than raw HTTP.
@@ -127,10 +201,18 @@ class ApkMirror(Downloader):
             partial_path.replace(target_path)
         except Exception as exc:
             partial_path.unlink(missing_ok=True)
-            msg = f"Unable to download {file_name} from APKMirror with CloakBrowser."
+            msg = (
+                f"Unable to download {file_name} from APKMirror with CloakBrowser. "
+                "If using free-tier CloakBrowser, check if an earlier process crash occupied the session seat "
+                "(auto-clears within ~15 minutes)."
+            )
             raise APKMirrorAPKDownloadError(msg, url=url) from exc
         finally:
-            browser.close()
+            try:
+                # Explicitly close browser instance to release session seat slot on process completion or error.
+                browser.close()
+            except Exception:  # noqa: BLE001
+                logger.debug("CloakBrowser instance was already closed during download cleanup.")
 
     @staticmethod
     def _select_download_extension(apk_type: str, *, preserve_bundle: bool) -> str:

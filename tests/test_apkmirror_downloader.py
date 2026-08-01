@@ -37,6 +37,9 @@ class _CloakPage:
     def wait_for_load_state(self: Self, *args: object, **kwargs: object) -> None:
         """Accept load-state waits because timeout handling is covered by Playwright itself."""
 
+    def wait_for_function(self: Self, *args: object, **kwargs: object) -> None:
+        """Accept function wait calls used to wait for Cloudflare Turnstile auto-resolution."""
+
     def set_extra_http_headers(self: Self, headers: dict[str, str]) -> None:
         """Fail if source extraction reintroduces a partial browser fingerprint override."""
         msg = f"Unexpected browser headers: {headers}"
@@ -117,11 +120,31 @@ class APKMirrorDownloaderTests(TestCase):
             """Return the fake browser while accepting the real launch options."""
             return browser
 
-        with patch.object(ApkMirror, "_cloak_dependencies", return_value=(launch_browser, TimeoutError)):
+        with patch.object(ApkMirror, "_cloak_dependencies", return_value=(launch_browser, TimeoutError, Exception)):
             source = ApkMirror._extract_source_with_cloak("https://www.apkmirror.com/apk/example/app/")
 
         self.assertEqual("<html>real app page</html>", source)
         self.assertTrue(browser.closed)
+
+    def test_cloak_launch_kwargs_injects_license_key_when_present_in_env(self: Self) -> None:
+        """CLOAKBROWSER_LICENSE_KEY should be passed to launch kwargs when configured in the environment."""
+        with patch.dict("os.environ", {"CLOAKBROWSER_LICENSE_KEY": "cb_test_12345"}, clear=True):
+            kwargs = ApkMirror._cloak_launch_kwargs()
+
+        # Verify that the license key is injected alongside default humanize and container flags.
+        self.assertEqual("cb_test_12345", kwargs.get("license_key"))
+        self.assertTrue(kwargs.get("humanize"))
+        self.assertEqual("careful", kwargs.get("human_preset"))
+
+    def test_cloak_launch_kwargs_omits_license_key_when_not_set(self: Self) -> None:
+        """When CLOAKBROWSER_LICENSE_KEY is not set, license_key should be omitted from kwargs."""
+        with patch.dict("os.environ", {}, clear=True):
+            kwargs = ApkMirror._cloak_launch_kwargs()
+
+        # Verify that license_key is absent when environment variable is not defined.
+        self.assertNotIn("license_key", kwargs)
+        self.assertTrue(kwargs.get("humanize"))
+        self.assertEqual("careful", kwargs.get("human_preset"))
 
     def test_guess_release_url_constructs_correct_slug(self: Self) -> None:
         """The guessed URL should combine the app slug with the version in APKMirror's dash-separated format."""
